@@ -1,0 +1,11 @@
+{
+  "name": "create-dom-jsx",
+  "version": "1.0.0",
+  "bin": {
+    "create-dom-jsx": "bin.js"
+  },
+  "dependencies": {
+    "@types/fs-extra": "^9.0.5",
+    "fs-extra": "^9.0.1"
+  }
+}

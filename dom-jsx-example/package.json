@@ -1,0 +1,12 @@
+{
+  "name": "example-dom-jsx",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vite": "^1.0.0-rc.13"
+  }
+}

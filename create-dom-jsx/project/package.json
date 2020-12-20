@@ -1,0 +1,30 @@
+{
+  "name": "dom-jsx-prject",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "dom-jsx": "^1.0.3",
+    "dom-jsx-scripts": "^4.0.15"
+  },
+  "scripts": {
+    "start": "dom-jsx-scripts start",
+    "build": "dom-jsx-scripts build",
+    "test": "dom-jsx-scripts test",
+    "eject": "dom-jsx-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "typescript": "^4.1.3"
+  }
+}
