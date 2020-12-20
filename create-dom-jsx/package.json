@@ -1,6 +1,6 @@
 {
   "name": "create-dom-jsx",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "bin": {
     "create-dom-jsx": "bin.js"
   },
