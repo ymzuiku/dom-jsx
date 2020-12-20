@@ -418,7 +418,7 @@ module.exports = function (webpackEnv) {
                     require.resolve("babel-preset-dom-jsx"),
                     {
                       // runtime: hasJsxRuntime ? "automatic" : "classic",
-                      pragma: "domJSX",
+                      pragma: "dom",
                       pragmaFrag: "domFrag",
                       runtime: "classic",
                     },

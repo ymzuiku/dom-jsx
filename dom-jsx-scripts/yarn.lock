@@ -2537,10 +2537,10 @@ babel-preset-current-node-syntax@^1.0.0:
     "@babel/plugin-syntax-optional-chaining" "^7.8.3"
     "@babel/plugin-syntax-top-level-await" "^7.8.3"
 
-babel-preset-dom-jsx@^10.0.1:
-  version "10.0.1"
-  resolved "https://registry.yarnpkg.com/babel-preset-dom-jsx/-/babel-preset-dom-jsx-10.0.1.tgz#7b678a89c34f211178b9a93b757f6629334efee4"
-  integrity sha512-yZGULr+rTKD2L7o9cyPdGX+wgYTJ/2qd+HOMC/IEi1UNoLMcgxbXwg99wTBSwuFhv0FtH8G7TcV2/0xdliZulA==
+babel-preset-dom-jsx@^10.0.2:
+  version "10.0.2"
+  resolved "https://registry.yarnpkg.com/babel-preset-dom-jsx/-/babel-preset-dom-jsx-10.0.2.tgz#1e8554ce6702288d6eab68b65c58076898172a94"
+  integrity sha512-Y3HsqXC0957VNVjMIPok4H0nkaULLCx4peSsk2uxgHmD8mW5kGpVLFw6sOD+DotuSA+C6Oz+5soMO/TPJyYlPA==
   dependencies:
     "@babel/core" "7.12.3"
     "@babel/plugin-proposal-class-properties" "7.12.1"

@@ -9,7 +9,7 @@ function App({ name }: { name: string }) {
       <button
         onclick={() => {
           num += 1;
-          next(".app");
+          dom.next(".app");
         }}
       >
         Add num

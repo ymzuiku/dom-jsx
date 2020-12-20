@@ -30,13 +30,25 @@ $ hard=1 monaco=1 yarn start # 开发环境 (使用缓存编译、应用 monaco 
 
 ## API
 
-next 是 dom-jsx 的一个全局函数，dom-jsx 也仅有此一个 API
+dom 是 dom-jsx 的一个全局函数, 用于 jsx 解析，其中 dom.next 用于更新元素
 
 ```ts
-declare const next: (
-  focusUpdateTargets?: string | undefined,
-  ignoreUpdateTargets?: string | any[] | undefined
-) => HTMLElement[];
+declare const dom: {
+  (tag: any, attrs?: any, ...child: any[]): HTMLElement;
+  stringToHex(str: string, start?: string): string;
+  waitAppend(ele: HTMLElement, max?: number): Promise<HTMLElement>;
+  subscribe: (fn: any) => () => void;
+  next: (
+    focusUpdateTargets?: string | undefined,
+    ignoreUpdateTargets?: string | any[] | undefined
+  ) => HTMLElement[];
+  events: Set<Function>;
+  registerTag(data: { [key: string]: any }): void;
+  propFn(
+    target: any,
+    fn: (val: any) => IStyled | string | boolean | number | any[] | object
+  ): any;
+};
 ```
 
 ## 很短且完整的教程
@@ -49,12 +61,12 @@ dom-jsx 仅仅保留了 JSX 相关的概念，移除了 React 所有非 JSX 相�
 
 前端开发可以抽象为两部分：页面绘制、页面更新；在 dom-jsx 中，页面绘制就是使用 jsx 语法组织原始的 HTMLElement；然后使用 `函数赋值` 来解决元素更新。
 
-`函数赋值`: 即在声明元素的过程中，给属性绑定一个函数，jsx 解析过程中，若发现属性是一个函数，记录一个发布订阅任务，然后则执行函数，并且赋值；在未来需要更新此属性时，使用 `next` 函数对文档进行选择，命中的**元素及其子元素**会执行之前订阅的任务，更新属性。
+`函数赋值`: 即在声明元素的过程中，给属性绑定一个函数，jsx 解析过程中，若发现属性是一个函数，记录一个发布订阅任务，然后则执行函数，并且赋值；在未来需要更新此属性时，使用 `dom.next` 函数对文档进行选择，命中的**元素及其子元素**会执行之前订阅的任务，更新属性。
 
 我们看一个例子
 
 ```tsx
-import "dom-jsx";
+import "dom-jsx"; // 在项目入口处引入一次，注册全局 dom 对象
 
 // 这是一个普通的 jsx 组件
 function App() {
@@ -70,7 +82,7 @@ function App() {
 // 这是一个用于演示 函数赋值/更新 的组件
 function StatefulExample({ name }: { name: string }) {
   console.log(
-    "这个日志仅会打印一次，因为next更新仅仅会派发元素的子属性，不会重绘整个组件"
+    "这个日志仅会打印一次，因为 dom.next 更新仅仅会派发元素的子属性，不会重绘整个组件"
   );
   let num = 0;
   return (
@@ -78,8 +90,8 @@ function StatefulExample({ name }: { name: string }) {
       <button
         onclick={() => {
           num += 1;
-          // next 会使用 document.body.querySelectorAll() 查询并更新 `.add` 匹配的元素及子元素
-          next(".add");
+          // dom.next 会使用 document.body.querySelectorAll() 查询并更新 `.add` 匹配的元素及子元素
+          dom.next(".add");
         }}
       >
         {name}
@@ -103,9 +115,9 @@ document.body.append(App());
 
 ## 设计细节
 
-1. 为了延续声明式的开发方式，`next` 函数并没有传递值，仅仅是派发了更新命令，元素的属性还是由内部状态管理的逻辑来解决状态分支问题
-2. 我们移除了类似 React 中 SCU，purecomponent、memo 等解决重绘问题的概念，因为**一次** next 执行仅仅更新**一次**局部元素的**属性**，并不会造成大规模重绘
-3. next 已经是全局可选则的更新，所以失去了传统的状态管理库的必要；合理规范好 next 的调用即可。
+1. 为了延续声明式的开发方式，`dom.next` 函数并没有传递值，仅仅是派发了更新命令，元素的属性还是由内部状态管理的逻辑来解决状态分支问题
+2. 我们移除了类似 React 中 SCU，purecomponent、memo 等解决重绘问题的概念，因为**一次** dom.next 执行仅仅更新**一次**局部元素的**属性**，并不会造成大规模重绘
+3. `dom.next` 已经是全局可选则的更新，所以失去了传统的状态管理库的必要；合理规范好 `dom.next` 的调用即可。
 
 ## 生态
 

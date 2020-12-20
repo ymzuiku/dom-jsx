@@ -2,9 +2,13 @@ import { ChildOne, IProps } from "./interface";
 import { subscribeElement } from "./state";
 import { loadable } from "./loadable";
 import { bindFn } from "./bindFn";
-import { isElement, isString, uiCaches } from "./helper";
+import { isElement, isString, uiCaches, registerTag } from "./helper";
 import { parseChildren } from "./parseChildren";
 import { waitAppend } from "./waitAppend";
+
+import { events, next, subscribe } from "./state";
+import { propFn } from "./propFn";
+import { stringToHex } from "./stringToHex";
 
 const ignoreKeys: any = {
   class: 1,
@@ -106,5 +110,14 @@ export const dom = (tag: ChildOne, attrs?: ChildOne, ...child: ChildOne[]): HTML
 export const domFrag = (...attrs: any[]) => {
   console.error("Dont Use Frag JSX");
 };
+
+(window as any).dom = dom;
 (window as any).domFrag = domFrag;
-(window as any).domJSX = dom;
+
+dom.stringToHex = stringToHex;
+dom.waitAppend = waitAppend;
+dom.subscribe = subscribe;
+dom.next = next;
+dom.events = events;
+dom.registerTag = registerTag;
+dom.propFn = propFn;
