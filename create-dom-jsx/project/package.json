@@ -1,6 +1,6 @@
 {
   "name": "dom-jsx-prject",
-  "version": "0.1.0",
+  "version": "1.0.7",
   "private": true,
   "scripts": {
     "start": "dom-jsx-scripts start",
@@ -9,8 +9,8 @@
     "eject": "dom-jsx-scripts eject"
   },
   "dependencies": {
-    "dom-jsx": "^1.0.4",
-    "dom-jsx-scripts": "^4.0.19"
+    "dom-jsx": "^1.0.7",
+    "dom-jsx-scripts": "^4.0.20"
   },
   "devDependencies": {
     "typescript": "^4.1.3"

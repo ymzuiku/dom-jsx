@@ -3987,10 +3987,10 @@ dom-converter@^0.2:
   dependencies:
     utila "~0.4"
 
-dom-jsx-scripts@^4.0.19:
-  version "4.0.19"
-  resolved "https://registry.yarnpkg.com/dom-jsx-scripts/-/dom-jsx-scripts-4.0.19.tgz#6f8dbdf426bdb14b29eb34da9824e75683e8e7c5"
-  integrity sha512-bidg3XTqYy0XlmIj1YZ8v5tTFoy/YyulShW/Lb+Y8M9ETw8LTg7G5cUQw72HjqxV/BDb0pMfhbZ+E2CAxBNzIg==
+dom-jsx-scripts@^4.0.20:
+  version "4.0.20"
+  resolved "https://registry.yarnpkg.com/dom-jsx-scripts/-/dom-jsx-scripts-4.0.20.tgz#c01894658ec155d9fe9bea5ed320f2a2d1d0ad1a"
+  integrity sha512-Pb32YnH6k5FolIdpziOKwxqqd09mBvBi/udRHFpmOovXzRsB+hp/Rb6cwOAZOZpwP2XyuzW9lg55q3xhtHRVNQ==
   dependencies:
     "@babel/core" "7.12.3"
     "@pmmmwh/react-refresh-webpack-plugin" "0.4.2"
@@ -4057,10 +4057,10 @@ dom-jsx-scripts@^4.0.19:
   optionalDependencies:
     fsevents "^2.1.3"
 
-dom-jsx@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/dom-jsx/-/dom-jsx-1.0.4.tgz#00a3e39aa603dea066f6b7c1e789ee5eb8001efc"
-  integrity sha512-ZmG+vrrgSisWwB9DK0Y5KmMEosA4BGQhsL+eAyDpEOEt3HyX4CHP6EeTs+ywSoFiEGYJbu+FwGI+QwGi0NDiyw==
+dom-jsx@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/dom-jsx/-/dom-jsx-1.0.7.tgz#99ce21e00d11f90d5c97c2ce163aa29e99c4a5e2"
+  integrity sha512-89rw52YTk8OMQrFVre+PdsEOziLkjVRJrwFnBWIbHhkgripUyBRqujvM8UmGg2nPEJ+In50Qp7uYi1//Iw/wkw==
 
 dom-serializer@0:
   version "0.2.2"

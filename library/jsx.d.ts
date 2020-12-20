@@ -1288,7 +1288,7 @@ declare namespace JSX {
     ruby: IProps;
     s: IProps;
     samp: IProps;
-    script: HTMLScriptElement;
+    script: IProps;
     section: IProps;
     select: IProps;
     slot: IProps;
@@ -1296,7 +1296,7 @@ declare namespace JSX {
     source: IProps;
     span: IProps;
     strong: IProps;
-    style: HTMLStyleElement;
+    style: IProps;
     sub: IProps;
     summary: IProps;
     sup: IProps;
@@ -1317,7 +1317,7 @@ declare namespace JSX {
     var: IProps;
     video: IProps;
     wbr: IProps;
-    [key: string]: any;
+    [key: string]: IProps;
   }
 }
 
