@@ -27,7 +27,6 @@ const ignoreKeys: any = {
 };
 
 const classKeys = ["className", "classReplace", "classPick", "classAdd"];
-const cssCache = {} as any;
 
 export const dom = (tag: ChildOne, attrs?: ChildOne, ...child: ChildOne[]): HTMLElement => {
   let props = {} as IProps;
@@ -38,7 +37,6 @@ export const dom = (tag: ChildOne, attrs?: ChildOne, ...child: ChildOne[]): HTML
   } else if (attrs) {
     props = attrs as any;
   }
-
   props.children = [...child];
 
   if (props.class) {
@@ -59,18 +57,6 @@ export const dom = (tag: ChildOne, attrs?: ChildOne, ...child: ChildOne[]): HTML
     if (uiCaches[tag]) {
       ele = loadable(uiCaches[tag], [props, ...child]);
       return ele;
-    } else if (tag === "style") {
-      // style 元素只往 head 中添加一次
-      if (child && typeof child[0] === "string") {
-        const cssTxt = child[0];
-        if (!cssCache[cssTxt]) {
-          cssCache[cssTxt] = true;
-          const sty = document.createElement("style");
-          sty.textContent = cssTxt;
-          document.head.append(sty);
-        }
-      }
-      return document.createTextNode("") as any;
     } else {
       ele = document.createElement(tag as any);
     }

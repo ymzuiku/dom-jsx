@@ -1,4 +1,3 @@
-import { dom } from "./dom";
 import { isElement, isString } from "./helper";
 import { subscribeElement } from "./state";
 
@@ -108,7 +107,11 @@ export function parseChildren(_childs: any[], ele: HTMLElement) {
     } else if (isElement(ch)) {
       ele.append(ch);
     } else {
-      ele.append((dom as any)(...ch));
+      // 如果不用 jsx， 就需要使用此方法
+      // if (dom.noUseJSX) {
+      // ele.append((dom as any)(...ch));
+      // }
+      ele.append(...ch);
     }
   });
 }

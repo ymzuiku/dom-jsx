@@ -9,7 +9,7 @@
     "eject": "dom-jsx-scripts eject"
   },
   "dependencies": {
-    "dom-jsx": "^1.1.0",
+    "dom-jsx": "^1.2.2",
     "dom-jsx-scripts": "^4.0.23"
   },
   "devDependencies": {
