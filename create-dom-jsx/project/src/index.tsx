@@ -1,5 +1,4 @@
-import { setRootCssValues } from "dom-jsx";
-setRootCssValues();
+import "dom-jsx";
 
 function App({ name }: { name: string }) {
   let num = 0;

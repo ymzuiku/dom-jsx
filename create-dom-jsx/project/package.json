@@ -1,9 +1,8 @@
 {
-  "name": "dom-jsx-prject",
-  "version": "1.0.7",
+  "name": "dom-jsx-project",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "cp -rf ../../dom-jsx-scripts node_modules/ && yarn start",
     "start": "dom-jsx-scripts start",
     "build": "dom-jsx-scripts build",
     "test": "dom-jsx-scripts test",
