@@ -1,6 +1,6 @@
 {
   "name": "dom-jsx",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "umd/index.js",
   "types": "umd/index.d.ts",
   "private": false,
@@ -41,9 +41,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ymzuiku/vanilla-jsx.git"
+    "url": "git+https://github.com/ymzuiku/dom-jsx.git"
   },
   "bugs": {
-    "url": "git+https://github.com/ymzuiku/vanilla-jsx.git"
+    "url": "git+https://github.com/ymzuiku/dom-jsx.git"
   }
 }

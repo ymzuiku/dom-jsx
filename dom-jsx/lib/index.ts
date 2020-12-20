@@ -10,6 +10,11 @@ setRootCssValues();
 
 (window as any).dom = dom;
 (window as any).next = next;
+if (!(window as any).React) {
+  (window as any).React = {
+    createElement: (window as any).dom,
+  };
+}
 
 export {
   stringToHex,

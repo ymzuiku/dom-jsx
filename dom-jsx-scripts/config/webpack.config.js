@@ -8,6 +8,9 @@
 // @remove-on-eject-end
 "use strict";
 
+const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
+const MonacoWebpackPlugin = require("monaco-editor-webpack-plugin");
+
 const fs = require("fs");
 const path = require("path");
 const webpack = require("webpack");
@@ -33,7 +36,7 @@ const getClientEnvironment = require("./env");
 const ModuleNotFoundPlugin = require("react-dev-utils/ModuleNotFoundPlugin");
 const ForkTsCheckerWebpackPlugin = require("react-dev-utils/ForkTsCheckerWebpackPlugin");
 const typescriptFormatter = require("react-dev-utils/typescriptFormatter");
-// const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 // @remove-on-eject-begin
 const getCacheIdentifier = require("react-dev-utils/getCacheIdentifier");
 // @remove-on-eject-end
@@ -54,6 +57,8 @@ const reactRefreshOverlayEntry = require.resolve(
 // Some apps do not need the benefits of saving a web request, so not inlining the chunk
 // makes for a smoother build process.
 const shouldInlineRuntimeChunk = process.env.INLINE_RUNTIME_CHUNK !== "false";
+const useMonaco = process.env.monaco !== void 0;
+const useHard = process.env.hard !== void 0;
 
 const imageInlineSizeLimit = parseInt(
   process.env.IMAGE_INLINE_SIZE_LIMIT || "10000"
@@ -101,7 +106,8 @@ module.exports = function (webpackEnv) {
   // Get environment variables to inject into our app.
   const env = getClientEnvironment(paths.publicUrlOrPath.slice(0, -1));
 
-  const shouldUseReactRefresh = env.raw.FAST_REFRESH;
+  // const shouldUseReactRefresh = env.raw.FAST_REFRESH;
+  const shouldUseReactRefresh = true;
 
   // common function to get style loaders
   const getStyleLoaders = (cssOptions, preProcessor) => {
@@ -416,7 +422,8 @@ module.exports = function (webpackEnv) {
                   ],
                 ],
                 // @remove-on-eject-begin
-                babelrc: false,
+                // babelrc: false,
+                babelrc: true,
                 configFile: false,
                 // Make sure we have a unique cache identifier, erring on the
                 // side of caution.
@@ -447,10 +454,9 @@ module.exports = function (webpackEnv) {
                       },
                     },
                   ],
-                  // isEnvDevelopment &&
-                  //   shouldUseReactRefresh &&
-                  //   require.resolve("react-refresh/babel"),
-                  isEnvDevelopment && shouldUseReactRefresh,
+                  isEnvDevelopment &&
+                    shouldUseReactRefresh &&
+                    require.resolve("react-refresh/babel"),
                 ].filter(Boolean),
                 // This is a feature of `babel-loader` for webpack (not Babel itself).
                 // It enables caching results in ./node_modules/.cache/babel-loader/
@@ -597,6 +603,32 @@ module.exports = function (webpackEnv) {
       ],
     },
     plugins: [
+      useMonaco && new MonacoWebpackPlugin(),
+      useHard &&
+        new HardSourceWebpackPlugin({
+          // cacheDirectory是在高速缓存写入。默认情况下，将缓存存储在node_modules下的目录中，因此如
+          // 果清除了node_modules，则缓存也是如此
+          cacheDirectory: "node_modules/.cache/hard-source/[confighash]",
+          // Either an absolute path or relative to webpack's options.context.
+          // Sets webpack's recordsPath if not already set.
+          recordsPath:
+            "node_modules/.cache/hard-source/[confighash]/records.json",
+          // configHash在启动webpack实例时转换webpack配置，并用于cacheDirectory为不同的webpack配
+          // 置构建不同的缓存
+          configHash: function (webpackConfig) {
+            // node-object-hash on npm can be used to build this.
+            return require("node-object-hash")({ sort: false }).hash(
+              webpackConfig
+            );
+          },
+          // 当加载器，插件，其他构建时脚本或其他动态依赖项发生更改时，hard-source需要替换缓存以确保输
+          // 出正确。environmentHash被用来确定这一点。如果散列与先前的构建不同，则将使用新的缓存
+          environmentHash: {
+            root: process.cwd(),
+            directories: [],
+            files: ["package-lock.json", "yarn.lock"],
+          },
+        }),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(
@@ -648,19 +680,19 @@ module.exports = function (webpackEnv) {
       isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),
       // Experimental hot reloading for React .
       // https://github.com/facebook/react/tree/master/packages/react-refresh
-      // isEnvDevelopment &&
-      //   shouldUseReactRefresh &&
-      //   new ReactRefreshWebpackPlugin({
-      //     overlay: {
-      //       entry: webpackDevClientEntry,
-      //       // The expected exports are slightly different from what the overlay exports,
-      //       // so an interop is included here to enable feedback on module-level errors.
-      //       module: reactRefreshOverlayEntry,
-      //       // Since we ship a custom dev client and overlay integration,
-      //       // the bundled socket handling logic can be eliminated.
-      //       sockIntegration: false,
-      //     },
-      //   }),
+      isEnvDevelopment &&
+        shouldUseReactRefresh &&
+        new ReactRefreshWebpackPlugin({
+          overlay: {
+            entry: webpackDevClientEntry,
+            // The expected exports are slightly different from what the overlay exports,
+            // so an interop is included here to enable feedback on module-level errors.
+            module: reactRefreshOverlayEntry,
+            // Since we ship a custom dev client and overlay integration,
+            // the bundled socket handling logic can be eliminated.
+            sockIntegration: false,
+          },
+        }),
       // Watcher doesn't work well if you mistype casing in a path so we use
       // a plugin that prints an error when you attempt to do this.
       // See https://github.com/facebook/create-react-app/issues/240
@@ -771,7 +803,7 @@ module.exports = function (webpackEnv) {
         //   },
         // },
         baseConfig: {
-          extends: [],
+          extends: [require.resolve("eslint-config-react-app/base")],
           rules: {
             ...(!hasJsxRuntime && {
               "react/react-in-jsx-scope": 0,

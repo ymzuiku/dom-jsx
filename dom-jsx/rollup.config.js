@@ -20,7 +20,7 @@ function clearDir(dir) {
   }
 }
 
-fs.copySync("../dom-jsx-example/src/dom", "./lib");
+fs.copySync("../example/src/dom", "./lib");
 fs.copySync("../README.md", "./README.md");
 
 function haveArgv(...args) {

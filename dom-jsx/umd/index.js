@@ -1076,6 +1076,11 @@ ${scrollbar}
   setRootCssValues();
   window.dom = dom;
   window.next = next;
+  if (!window.React) {
+      window.React = {
+          createElement: window.dom,
+      };
+  }
 
   exports.addTag = addTag;
   exports.dom = dom;
