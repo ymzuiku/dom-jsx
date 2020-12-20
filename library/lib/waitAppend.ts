@@ -6,7 +6,7 @@ export function waitAppend(ele: HTMLElement, max = 400): Promise<HTMLElement> {
         res(ele);
       } else if (n < max) {
         n++;
-        setTimeout(check, 20 + n);
+        requestAnimationFrame(check);
       } else {
         rej(ele);
       }
