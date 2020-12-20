@@ -4,13 +4,28 @@
 
 dom-jsx 非常小, gzip: 3.5kb
 
-## 安装
+## 安装 / 启动
+
+安装
 
 ```sh
 $ npm init dom-jsx <project-name>
 $ cd <project-name>
 $ yarn install
-$ yarn dev
+```
+
+启动：
+
+```sh
+$ yarn start # 开发环境
+$ yarn build # 编译
+```
+
+其它扩展
+
+```sh
+$ hard=1 yarn start # 开发环境 (使用缓存编译)
+$ hard=1 monaco=1 yarn start # 开发环境 (使用缓存编译、应用 monaco 插件)
 ```
 
 ## API
