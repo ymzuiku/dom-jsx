@@ -1,10 +1,11 @@
-import "dom-jsx";
+import { setRootCssValues } from "dom-jsx";
+setRootCssValues();
 
 function App({ name }: { name: string }) {
   let num = 0;
   return (
     <div class="app">
-      <h1>Hello {name}</h1>
+      <h1>Hello2 {name}</h1>
       <p>{() => num}</p>
       <button
         onclick={() => {

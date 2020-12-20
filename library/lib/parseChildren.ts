@@ -2,58 +2,9 @@ import { dom } from "./dom";
 import { isElement, isString } from "./helper";
 import { subscribeElement } from "./state";
 
-// function clonePropElement(old: Element, next: Element): string | undefined {
-//   const len = old.childNodes.length;
-//   const isText = len === 1 && (old.textContent || next.textContent);
-
-//   if (
-//     isText ||
-//     old.tagName !== next.tagName ||
-//     len !== next.childNodes.length
-//   ) {
-//     old.replaceWith(next);
-//     delete (old as any).__next;
-//     return "replace";
-//   }
-//   // delete (next as any).__next;
-//   // next.querySelectorAll("*").forEach((e: any) => {
-//   //   delete e.__next;
-//   // });
-//   for (let i = 0; i < next.attributes.length; i++) {
-//     const attr = next.attributes.item(i)!;
-//     if (old.getAttribute(attr.name) !== attr.value) {
-//       old.setAttribute(attr.name, attr.value);
-//     }
-//   }
-//   Object.keys(next).forEach((k) => {
-//     const v = (next as any)[k];
-//     if ((old as any)[k] !== v) {
-//       (old as any)[k] = v;
-//     }
-//   });
-// }
-
 function deepCloneElement(old: Element, next: Element) {
-  // if (
-  //   isText ||
-  //   old.tagName !== next.tagName ||
-  //   len !== next.childNodes.length
-  // ) {
-  //   old.replaceWith(next);
-  //   delete (old as any).__next;
-  //   return "replace";
-  // }
   old.replaceWith(next);
   return;
-  // const isReplace = clonePropElement(old, next);
-  // if (isReplace === "replace") {
-  //   return;
-  // }
-  // next.querySelectorAll("*").forEach((ne) => {
-  //   old.querySelectorAll("*").forEach((oe) => {
-  //     clonePropElement(oe as any, ne as any);
-  //   });
-  // });
 }
 
 export function parseChildren(_childs: any[], ele: HTMLElement) {
@@ -64,9 +15,7 @@ export function parseChildren(_childs: any[], ele: HTMLElement) {
   // ele.innerText = "";
   // 递归 Array
 
-  const childs = (_childs as any).filter(
-    (v: any) => v !== undefined && v !== null
-  );
+  const childs = (_childs as any).filter((v: any) => v !== undefined && v !== null);
 
   childs.forEach((ch: any, index: number) => {
     if (isString(ch)) {

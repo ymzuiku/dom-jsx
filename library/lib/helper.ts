@@ -1,6 +1,6 @@
 export const uiCaches: any = {};
 
-export function addTag(data: { [key: string]: any }) {
+export function registerTag(data: { [key: string]: any }) {
   Object.keys(data).forEach((key) => {
     uiCaches[key] = data[key];
   });

@@ -411,13 +411,16 @@ module.exports = function (webpackEnv) {
               loader: require.resolve("babel-loader"),
               options: {
                 customize: require.resolve(
-                  "babel-preset-react-app/webpack-overrides"
+                  "babel-preset-dom-jsx/webpack-overrides"
                 ),
                 presets: [
                   [
-                    require.resolve("babel-preset-react-app"),
+                    require.resolve("babel-preset-dom-jsx"),
                     {
-                      runtime: hasJsxRuntime ? "automatic" : "classic",
+                      // runtime: hasJsxRuntime ? "automatic" : "classic",
+                      pragma: "domJSX",
+                      pragmaFrag: "domFrag",
+                      runtime: "classic",
                     },
                   ],
                 ],
@@ -429,14 +432,14 @@ module.exports = function (webpackEnv) {
                 // side of caution.
                 // We remove this when the user ejects because the default
                 // is sane and uses Babel options. Instead of options, we use
-                // the react-scripts and babel-preset-react-app versions.
+                // the react-scripts and babel-preset-dom-jsx versions.
                 cacheIdentifier: getCacheIdentifier(
                   isEnvProduction
                     ? "production"
                     : isEnvDevelopment && "development",
                   [
                     "babel-plugin-named-asset-import",
-                    "babel-preset-react-app",
+                    "babel-preset-dom-jsx",
                     "react-dev-utils",
                     "react-scripts",
                   ]
@@ -479,7 +482,7 @@ module.exports = function (webpackEnv) {
                 compact: false,
                 presets: [
                   [
-                    require.resolve("babel-preset-react-app/dependencies"),
+                    require.resolve("babel-preset-dom-jsx/dependencies"),
                     { helpers: true },
                   ],
                 ],
@@ -493,7 +496,7 @@ module.exports = function (webpackEnv) {
                     : isEnvDevelopment && "development",
                   [
                     "babel-plugin-named-asset-import",
-                    "babel-preset-react-app",
+                    "babel-preset-dom-jsx",
                     "react-dev-utils",
                     "react-scripts",
                   ]

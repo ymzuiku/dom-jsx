@@ -29,21 +29,11 @@ const ignoreKeys: any = {
 const classKeys = ["className", "classReplace", "classPick", "classAdd"];
 const cssCache = {} as any;
 
-export const dom = (
-  tag: ChildOne,
-  attrs?: ChildOne,
-  ...child: ChildOne[]
-): HTMLElement => {
+export const dom = (tag: ChildOne, attrs?: ChildOne, ...child: ChildOne[]): HTMLElement => {
   let props = {} as IProps;
   // 兼容第二个参数，attrs是child
 
-  if (
-    attrs &&
-    (typeof attrs === "function" ||
-      Array.isArray(attrs) ||
-      isString(attrs) ||
-      isElement(attrs))
-  ) {
+  if (attrs && (typeof attrs === "function" || Array.isArray(attrs) || isString(attrs) || isElement(attrs))) {
     child = [attrs, ...child];
   } else if (attrs) {
     props = attrs as any;
@@ -130,5 +120,5 @@ export const dom = (
 export const domFrag = (...attrs: any[]) => {
   console.error("Dont Use Frag JSX");
 };
-
+(window as any).domFrag = domFrag;
 (window as any).domJSX = dom;

@@ -2531,18 +2531,10 @@ babel-preset-current-node-syntax@^1.0.0:
     "@babel/plugin-syntax-optional-chaining" "^7.8.3"
     "@babel/plugin-syntax-top-level-await" "^7.8.3"
 
-babel-preset-jest@^26.6.2:
-  version "26.6.2"
-  resolved "https://registry.yarnpkg.com/babel-preset-jest/-/babel-preset-jest-26.6.2.tgz#747872b1171df032252426586881d62d31798fee"
-  integrity sha512-YvdtlVm9t3k777c5NPQIv6cxFFFapys25HiUmuSgHwIZhfifweR5c5Sf5nwE3MAbfu327CYSvps8Yx6ANLyleQ==
-  dependencies:
-    babel-plugin-jest-hoist "^26.6.2"
-    babel-preset-current-node-syntax "^1.0.0"
-
-babel-preset-react-app@^10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/babel-preset-react-app/-/babel-preset-react-app-10.0.0.tgz#689b60edc705f8a70ce87f47ab0e560a317d7045"
-  integrity sha512-itL2z8v16khpuKutx5IH8UdCdSTuzrOhRFTEdIhveZ2i1iBKDrVE0ATa4sFVy+02GLucZNVBWtoarXBy0Msdpg==
+babel-preset-dom-jsx@^10.0.1:
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/babel-preset-dom-jsx/-/babel-preset-dom-jsx-10.0.1.tgz#7b678a89c34f211178b9a93b757f6629334efee4"
+  integrity sha512-yZGULr+rTKD2L7o9cyPdGX+wgYTJ/2qd+HOMC/IEi1UNoLMcgxbXwg99wTBSwuFhv0FtH8G7TcV2/0xdliZulA==
   dependencies:
     "@babel/core" "7.12.3"
     "@babel/plugin-proposal-class-properties" "7.12.1"
@@ -2559,6 +2551,14 @@ babel-preset-react-app@^10.0.0:
     "@babel/runtime" "7.12.1"
     babel-plugin-macros "2.8.0"
     babel-plugin-transform-react-remove-prop-types "0.4.24"
+
+babel-preset-jest@^26.6.2:
+  version "26.6.2"
+  resolved "https://registry.yarnpkg.com/babel-preset-jest/-/babel-preset-jest-26.6.2.tgz#747872b1171df032252426586881d62d31798fee"
+  integrity sha512-YvdtlVm9t3k777c5NPQIv6cxFFFapys25HiUmuSgHwIZhfifweR5c5Sf5nwE3MAbfu327CYSvps8Yx6ANLyleQ==
+  dependencies:
+    babel-plugin-jest-hoist "^26.6.2"
+    babel-preset-current-node-syntax "^1.0.0"
 
 babel-runtime@^6.26.0:
   version "6.26.0"
@@ -3987,10 +3987,10 @@ dom-converter@^0.2:
   dependencies:
     utila "~0.4"
 
-dom-jsx-scripts@^4.0.20:
-  version "4.0.20"
-  resolved "https://registry.yarnpkg.com/dom-jsx-scripts/-/dom-jsx-scripts-4.0.20.tgz#c01894658ec155d9fe9bea5ed320f2a2d1d0ad1a"
-  integrity sha512-Pb32YnH6k5FolIdpziOKwxqqd09mBvBi/udRHFpmOovXzRsB+hp/Rb6cwOAZOZpwP2XyuzW9lg55q3xhtHRVNQ==
+dom-jsx-scripts@^4.0.22:
+  version "4.0.22"
+  resolved "https://registry.yarnpkg.com/dom-jsx-scripts/-/dom-jsx-scripts-4.0.22.tgz#ec9acd09694313e93741a8b0fc8cf02157992b61"
+  integrity sha512-NnGv8B9MXYQ+PATi3nW/F1uRbFa8ymNwxYeCJUKwCMDQUz+jmaYbSHSBL6WlNakC385GJDkXQu2ClBB2ttQDqg==
   dependencies:
     "@babel/core" "7.12.3"
     "@pmmmwh/react-refresh-webpack-plugin" "0.4.2"
@@ -4001,7 +4001,7 @@ dom-jsx-scripts@^4.0.20:
     babel-jest "^26.6.0"
     babel-loader "8.1.0"
     babel-plugin-named-asset-import "^0.3.7"
-    babel-preset-react-app "^10.0.0"
+    babel-preset-dom-jsx "^10.0.1"
     bfj "^7.0.2"
     camelcase "^6.1.0"
     case-sensitive-paths-webpack-plugin "2.3.0"
@@ -4057,10 +4057,10 @@ dom-jsx-scripts@^4.0.20:
   optionalDependencies:
     fsevents "^2.1.3"
 
-dom-jsx@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/dom-jsx/-/dom-jsx-1.0.7.tgz#99ce21e00d11f90d5c97c2ce163aa29e99c4a5e2"
-  integrity sha512-89rw52YTk8OMQrFVre+PdsEOziLkjVRJrwFnBWIbHhkgripUyBRqujvM8UmGg2nPEJ+In50Qp7uYi1//Iw/wkw==
+dom-jsx@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/dom-jsx/-/dom-jsx-1.1.0.tgz#020b409c46c725c0280d114df88813536b2a55d0"
+  integrity sha512-+jWEmEamaTvfPKoJbRHQtJRr0gfYIBRwvAr4yy4cza/ggb4PvULIycQ7RapIN4cVNo4aph4Hzt5KXypxkUxDDQ==
 
 dom-serializer@0:
   version "0.2.2"

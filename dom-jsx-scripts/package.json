@@ -1,13 +1,13 @@
 {
   "name": "dom-jsx-scripts",
-  "version": "4.0.20",
+  "version": "4.0.22",
   "description": "Configuration and scripts for Create dom-jsx App, fork react-scripts.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ymzuiku/vanilla-jsx.git"
+    "url": "git+https://github.com/ymzuiku/dom-jsx.git"
   },
   "bugs": {
-    "url": "git+https://github.com/ymzuiku/vanilla-jsx.git"
+    "url": "git+https://github.com/ymzuiku/dom-jsx.git"
   },
   "license": "MIT",
   "engines": {
@@ -36,7 +36,7 @@
     "babel-jest": "^26.6.0",
     "babel-loader": "8.1.0",
     "babel-plugin-named-asset-import": "^0.3.7",
-    "babel-preset-react-app": "^10.0.0",
+    "babel-preset-dom-jsx": "^10.0.1",
     "bfj": "^7.0.2",
     "camelcase": "^6.1.0",
     "case-sensitive-paths-webpack-plugin": "2.3.0",

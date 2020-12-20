@@ -1,5 +1,5 @@
 export declare const uiCaches: any;
-export declare function addTag(data: {
+export declare function registerTag(data: {
     [key: string]: any;
 }): void;
 export declare function isString(obj: any): true | undefined;

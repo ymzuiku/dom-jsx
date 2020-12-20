@@ -20,7 +20,6 @@ function clearDir(dir) {
   }
 }
 
-fs.copySync("../example/src/dom", "./lib");
 fs.copySync("../README.md", "./README.md");
 
 function haveArgv(...args) {
@@ -48,10 +47,11 @@ const watchOptions = [
       sourcemap: false,
     },
     plugins: [
-      nodeResolve(),
+      // nodeResolve(),
       rollupTypescript({
         useTsconfigDeclarationDir: false,
       }),
+      uglify(),
       // uglify({
       //   mangle: {
       //     eval: true,
