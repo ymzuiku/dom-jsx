@@ -1,6 +1,6 @@
 # dom-jsx
 
-使用 jsx 开发 native-js 程序, 每个组建都是一个原始的 HTMLElment，可以和所有原生 js 库很好的兼容使用。
+使用 jsx 开发 native-js 程序, 每个组件都是一个原始的 HTMLElment，可以和所有原生 js 库很好的兼容使用。
 
 ## 安装
 
