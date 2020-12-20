@@ -1324,7 +1324,7 @@ declare namespace JSX {
 declare const dom: {
   (tag: any, attrs?: any, ...child: any[]): HTMLElement;
   stringToHex(str: string, start?: string): string;
-  waitAppend(ele: HTMLElement, max?: number): Promise<HTMLElement>;
+  waitAppend(ele: HTMLElement | string, max?: number): Promise<HTMLElement>;
   subscribe: (fn: any) => () => void;
   next: (focusUpdateTargets?: string | undefined, ignoreUpdateTargets?: string | any[] | undefined) => HTMLElement[];
   events: Set<Function>;
