@@ -2,6 +2,8 @@
 
 使用 jsx 开发 native-js 程序, 每个组建都是一个原始的 HTMLElment，可以和所有原生 js 库很好的兼容使用。
 
+dom-jsx 非常小, gzip: 3.5kb
+
 ## 安装
 
 ```sh
