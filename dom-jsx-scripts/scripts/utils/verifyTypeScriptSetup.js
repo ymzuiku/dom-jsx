@@ -143,7 +143,7 @@ function verifyTypeScriptSetup() {
       reason: "to match webpack resolution",
     },
     resolveJsonModule: { value: true, reason: "to match webpack loader" },
-    isolatedModules: { value: true, reason: "implementation limitation" },
+    // isolatedModules: { value: true, reason: "implementation limitation" },
     noEmit: { value: true },
     jsx: {
       parsedValue:

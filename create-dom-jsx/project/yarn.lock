@@ -3987,10 +3987,10 @@ dom-converter@^0.2:
   dependencies:
     utila "~0.4"
 
-dom-jsx-scripts@^4.0.22:
-  version "4.0.22"
-  resolved "https://registry.yarnpkg.com/dom-jsx-scripts/-/dom-jsx-scripts-4.0.22.tgz#ec9acd09694313e93741a8b0fc8cf02157992b61"
-  integrity sha512-NnGv8B9MXYQ+PATi3nW/F1uRbFa8ymNwxYeCJUKwCMDQUz+jmaYbSHSBL6WlNakC385GJDkXQu2ClBB2ttQDqg==
+dom-jsx-scripts@^4.0.23:
+  version "4.0.23"
+  resolved "https://registry.yarnpkg.com/dom-jsx-scripts/-/dom-jsx-scripts-4.0.23.tgz#a31b00a0bcbc5a83ca1198bbdb25dc0690b6f4c4"
+  integrity sha512-DJ/kDV27ehxNIPLTy7RTu6lL2Lil/Y0RIgzPposEs8/rDoUAHq/4hgx8afQPMLEzRuqfWnX3eD7jtClZ9ti0mg==
   dependencies:
     "@babel/core" "7.12.3"
     "@pmmmwh/react-refresh-webpack-plugin" "0.4.2"

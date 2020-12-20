@@ -1,6 +1,6 @@
 {
   "name": "dom-jsx-scripts",
-  "version": "4.0.22",
+  "version": "4.0.23",
   "description": "Configuration and scripts for Create dom-jsx App, fork react-scripts.",
   "repository": {
     "type": "git",
